@@ -1,0 +1,154 @@
+---
+const tabs = [
+    {
+        id: "roi",
+        label: "Clear ROI Tied to KPIs",
+        content: {
+            title: "If an agency can't tie AI to numbers, it's theater.",
+            points: [
+                "Lower CAC / higher ROAS",
+                "Higher conversion rate",
+                "Faster speed-to-market",
+                "More SQLs per rep",
+            ],
+        },
+    },
+    {
+        id: "speed",
+        label: "Speed + Throughput",
+        content: {
+            title: "Move fast, learn faster.",
+            points: [
+                "More experiments per month",
+                "Faster creative iteration",
+                "Shorter time from insight to asset to launch",
+            ],
+        },
+    },
+    {
+        id: "plan",
+        label: "A Practical Plan",
+        content: {
+            title: "No fluff, just execution.",
+            points: [
+                "15 days: Quick wins + instrumentation",
+                "30 days: Workflows + automations",
+                "60 days: Agentic systems + compounding improvements",
+            ],
+        },
+    },
+    {
+        id: "stack",
+        label: "Plugs Into Your Stack",
+        content: {
+            title: "We don't bring another tool. We plug into yours.",
+            points: [
+                "Salesforce, HubSpot, Zendesk",
+                "GA4, Looker, BigQuery, Snowflake",
+                "Google Ads, Meta, TikTok",
+            ],
+        },
+    },
+];
+---
+
+<section class="section-padding bg-sky-dark relative overflow-hidden">
+    <div class="container-custom">
+        <div class="mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                What Clients Actually Buy
+            </h2>
+            <p class="text-sky-muted text-lg max-w-2xl">
+                We sell outcomes, not hours. Here's what you get when you
+                partner with SkyAbove.
+            </p>
+        </div>
+
+        <!-- Tab Navigation (Desktop) -->
+        <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/3 flex flex-col space-y-2">
+                {
+                    tabs.map((tab, index) => (
+                        <button
+                            class={`text-left px-6 py-4 rounded-lg text-lg font-medium transition-all duration-300 border-l-2 ${index === 0 ? "bg-sky-blue/10 text-white border-sky-blue" : "text-sky-muted border-transparent hover:bg-sky-card hover:text-white"}`}
+                            data-tab={tab.id}
+                        >
+                            {tab.label}
+                        </button>
+                    ))
+                }
+                <!-- See All Features link for mobile or expansion -->
+            </div>
+
+            <!-- Tab Content Area -->
+            <div
+                class="lg:w-2/3 min-h-[400px] relative bg-sky-card/30 rounded-2xl p-8 md:p-12 border border-sky-card backdrop-blur-sm"
+            >
+                {
+                    tabs.map((tab, index) => (
+                        <div
+                            id={tab.id}
+                            class={`transition-opacity duration-500 ${index === 0 ? "block" : "hidden"}`}
+                        >
+                            <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
+                                {tab.content.title}
+                            </h3>
+                            <ul class="space-y-4">
+                                {tab.content.points.map((point) => (
+                                    <li class="flex items-start space-x-3 text-lg text-sky-muted">
+                                        <span class="text-sky-blue mt-1">
+                                            ✔
+                                        </span>
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div class="mt-8 pt-8 border-t border-sky-card/50">
+                                <a
+                                    href="/how-we-work"
+                                    class="text-sky-blue font-bold hover:text-white transition-colors inline-flex items-center"
+                                >
+                                    See the full process{" "}
+                                    <span class="ml-2">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Simple client-side script for tab switching (vanilla JS for lightness) -->
+<script>
+    const buttons = document.querySelectorAll("[data-tab]");
+    const contents = document.querySelectorAll(".lg\\:w-2\\/3 > div"); // Select content divs
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            // Deactivate all buttons
+            buttons.forEach((b) => {
+                b.className =
+                    "text-left px-6 py-4 rounded-lg text-lg font-medium transition-all duration-300 border-l-2 text-sky-muted border-transparent hover:bg-sky-card hover:text-white";
+            });
+            // Activate clicked button
+            btn.className =
+                "text-left px-6 py-4 rounded-lg text-lg font-medium transition-all duration-300 border-l-2 bg-sky-blue/10 text-white border-sky-blue";
+
+            // Hide all contents
+            contents.forEach((content) => {
+                content.classList.add("hidden");
+                content.classList.remove("block", "animate-fade-in");
+            });
+
+            // Show selected content
+            const tabId = btn.getAttribute("data-tab");
+            const activeContent = document.getElementById(tabId!);
+            if (activeContent) {
+                activeContent.classList.remove("hidden");
+                activeContent.classList.add("block", "animate-fade-in");
+            }
+        });
+    });
+</script>

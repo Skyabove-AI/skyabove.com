@@ -1,0 +1,167 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CTASection from "../components/CTASection.astro";
+
+const posts = [
+    {
+        title: "Why Most AI Agencies are Just Reselling ChatGPT",
+        category: "AI Marketing",
+        date: "Oct 24, 2025",
+        excerpt:
+            "The agency model is broken. Here's how we're fixing it with engineered systems.",
+        image: "bg-gradient-to-br from-sky-blue/20 to-sky-navy",
+    },
+    {
+        title: "The Death of SEO: Enter Answer Engine Optimization (AEO)",
+        category: "AEO",
+        date: "Oct 18, 2025",
+        excerpt:
+            "How to rank when search engines give answers instead of links.",
+        image: "bg-gradient-to-br from-sky-amber/20 to-sky-navy",
+    },
+    {
+        title: "Scaling Creative Production 10x with Custom Voice Models",
+        category: "Performance Marketing",
+        date: "Oct 12, 2025",
+        excerpt:
+            "Stop using generic prompts. Build a model that knows your brand better than you do.",
+        image: "bg-gradient-to-br from-sky-card to-sky-navy",
+    },
+    {
+        title: "Data Clean Rooms: The Future of Attribution",
+        category: "Data & Analytics",
+        date: "Oct 05, 2025",
+        excerpt:
+            "Privacy laws are tightening. Here is how to measure impact without cookies.",
+        image: "bg-gradient-to-br from-purple-900/40 to-sky-navy",
+    },
+    {
+        title: "Building Internal AI Tools for Non-Technical Teams",
+        category: "AI Strategy",
+        date: "Sep 28, 2025",
+        excerpt:
+            "How we saved a client 40 hours/week with a simple internal agent.",
+        image: "bg-gradient-to-br from-emerald-900/40 to-sky-navy",
+    },
+    {
+        title: "The prompt engineering guide for CMOs",
+        category: "AI Marketing",
+        date: "Sep 21, 2025",
+        excerpt:
+            "What executives actually need to know about working with LLMs.",
+        image: "bg-gradient-to-br from-sky-blue/10 to-sky-navy",
+    },
+];
+
+const categories = [
+    "All",
+    "AI Marketing",
+    "AEO",
+    "Performance Marketing",
+    "Data & Analytics",
+    "Case Studies",
+];
+---
+
+<Layout title="Insights - SkyAbove">
+    <div class="pt-32 pb-12 bg-sky-navy border-b border-sky-card/30">
+        <div class="container-custom">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Insights</h1>
+            <p class="text-xl text-sky-muted max-w-2xl">
+                Thinking from the edge of what's possible in AI and marketing.
+            </p>
+
+            <!-- Categories scroll -->
+            <div
+                class="flex overflow-x-auto space-x-4 mt-12 pb-4 scrollbar-hide"
+            >
+                {
+                    categories.map((cat, i) => (
+                        <button
+                            class={`px-4 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-colors border ${i === 0 ? "bg-sky-blue text-white border-sky-blue" : "bg-transparent text-sky-muted border-sky-card hover:border-sky-muted hover:text-white"}`}
+                        >
+                            {cat}
+                        </button>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding bg-sky-dark">
+        <div class="container-custom">
+            <!-- Featured Post -->
+            <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center group cursor-pointer"
+            >
+                <div
+                    class="aspect-video rounded-2xl overflow-hidden relative border border-sky-card group-hover:border-sky-blue/50 transition-colors"
+                >
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-sky-blue/30 to-sky-navy"
+                    >
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <span
+                            class="bg-sky-blue text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                            >Featured</span
+                        >
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div
+                        class="text-sky-amber font-bold text-sm tracking-wider uppercase"
+                    >
+                        AI Strategy
+                    </div>
+                    <h2
+                        class="text-3xl md:text-4xl font-bold group-hover:text-sky-blue transition-colors"
+                    >
+                        The Agentic Future of Marketing Agencies
+                    </h2>
+                    <p class="text-sky-muted text-lg leading-relaxed">
+                        Why the next generation of agencies won't sell services.
+                        They'll sell systems. An in-depth look at the shift from
+                        human-only to human-in-the-loop workflows.
+                    </p>
+                    <div
+                        class="flex items-center text-sm text-sky-muted space-x-4"
+                    >
+                        <span>Oct 30, 2025</span>
+                        <span>•</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    posts.map((post) => (
+                        <article class="group bg-sky-card/20 border border-sky-card rounded-xl overflow-hidden hover:border-sky-blue/30 transition-all hover:-translate-y-1">
+                            <div class={`h-48 ${post.image} relative`} />
+                            <div class="p-6 space-y-4">
+                                <div class="flex justify-between items-center text-xs">
+                                    <span class="text-sky-blue font-bold uppercase tracking-wider">
+                                        {post.category}
+                                    </span>
+                                    <span class="text-sky-muted">
+                                        {post.date}
+                                    </span>
+                                </div>
+                                <h3 class="text-xl font-bold text-white group-hover:text-sky-blue transition-colors leading-tight">
+                                    {post.title}
+                                </h3>
+                                <p class="text-sky-muted text-sm line-clamp-3">
+                                    {post.excerpt}
+                                </p>
+                            </div>
+                        </article>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <CTASection />
+</Layout>

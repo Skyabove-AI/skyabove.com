@@ -1,228 +1,351 @@
 ---
-import Logo from "./Logo.astro";
+const links = [
+  { text: "Services", href: "/services" },
+  { text: "How We Work", href: "/how-we-work" },
+  { text: "Results", href: "/results" },
+  { text: "About", href: "/about" },
+  { text: "Insights", href: "/insights" },
+];
 ---
 
-<nav class="navbar">
-  <div class="container">
-    <div class="nav-wrapper">
-      <div class="logo">
-        <a href="/" class="logo-link">
-          <Logo size={40} />
-          <span class="logo-text">Sky<span class="highlight">above</span></span>
-        </a>
+<header class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4">
+  <div
+    id="main-nav"
+    class="relative flex items-center justify-between w-full max-w-5xl px-6 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full shadow-2xl transition-all duration-300"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="text-xl font-bold tracking-tighter text-white z-50 flex items-center space-x-2"
+    >
+      <div
+        class="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center"
+      >
+        <span class="text-white text-xs">▲</span>
       </div>
-      <ul class="nav-menu">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/#packages" class="nav-link">Services</a></li>
-        <li><a href="/industries" class="nav-link">Industries</a></li>
-        <li><a href="/#portfolio" class="nav-link">Case Studies</a></li>
-        <li><a href="/#contact" class="nav-link cta-button">Get Started</a></li>
-      </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <span>SkyAbove</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center space-x-1">
+      <!-- Services -->
+      <a
+        href="/services"
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200"
+      >
+        Services
+      </a>
+
+      <!-- AI Consulting -->
+      <a
+        href="/ai-consulting"
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200"
+      >
+        AI Consulting
+      </a>
+
+      <!-- Industries Dropdown -->
+      <div class="relative group">
+        <button
+          class="dropdown-trigger flex items-center space-x-1 px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200 focus:outline-none"
+        >
+          <span>Industries</span>
+          <svg
+            class="dropdown-arrow w-3 h-3 transition-transform duration-200 opacity-50"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"></path></svg
+          >
+        </button>
+
+        <!-- Dropdown Menu -->
+        <div
+          class="absolute left-1/2 -translate-x-1/2 mt-2 w-64 bg-[#0A0A0A]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl hidden flex-col p-2 space-y-1 opacity-0 translate-y-2 transition-all duration-200 origin-top z-[60]"
+        >
+          <a
+            href="/industries/home-services"
+            class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 group/item transition-colors"
+          >
+            <span class="text-lg opacity-70">🏠</span>
+            <div>
+              <div class="text-white font-medium text-sm">Home Services</div>
+            </div>
+          </a>
+          <a
+            href="/industries/legal"
+            class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 group/item transition-colors"
+          >
+            <span class="text-lg opacity-70">⚖️</span>
+            <div>
+              <div class="text-white font-medium text-sm">Legal</div>
+            </div>
+          </a>
+          <a
+            href="/industries/political"
+            class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 group/item transition-colors"
+          >
+            <span class="text-lg opacity-70">🗳️</span>
+            <div>
+              <div class="text-white font-medium text-sm">Political</div>
+            </div>
+          </a>
+          <a
+            href="/industries/ecommerce"
+            class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-white/5 group/item transition-colors"
+          >
+            <span class="text-lg opacity-70">📦</span>
+            <div>
+              <div class="text-white font-medium text-sm">E-commerce</div>
+            </div>
+          </a>
+        </div>
       </div>
+
+      <a
+        href="/how-we-work"
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200"
+      >
+        How We Work
+      </a>
+
+      <a
+        href="/results"
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200"
+      >
+        Results
+      </a>
+
+      <a
+        href="/insights"
+        class="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-full transition-all duration-200"
+      >
+        Insights
+      </a>
+    </nav>
+
+    <!-- CTA & Mobile Trigger -->
+    <div class="flex items-center space-x-4">
+      <a
+        href="/contact"
+        class="hidden md:inline-flex items-center justify-center px-5 py-2 text-sm font-medium text-black bg-white rounded-full hover:bg-gray-200 transition-all duration-200 shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.5)]"
+      >
+        Book Strategy
+        <svg
+          class="w-3 h-3 ml-2"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+        >
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none z-50 group"
+        aria-label="Toggle menu"
+      >
+        <span
+          class="w-6 h-0.5 bg-white transition-all duration-300 origin-center group-[.active]:rotate-45 group-[.active]:translate-y-2"
+        ></span>
+        <span
+          class="w-6 h-0.5 bg-white transition-all duration-300 group-[.active]:opacity-0"
+        ></span>
+        <span
+          class="w-6 h-0.5 bg-white transition-all duration-300 origin-center group-[.active]:-rotate-45 group-[.active]:-translate-y-2"
+        ></span>
+      </button>
     </div>
   </div>
-</nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div
+    id="mobile-nav"
+    class="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 translate-x-full transition-transform duration-300 md:hidden flex items-center justify-center"
+  >
+    <nav class="flex flex-col items-center space-y-6">
+      <a
+        href="/services"
+        class="text-3xl font-bold text-white hover:text-purple-400 transition-colors"
+        >Services</a
+      >
+      <a
+        href="/ai-consulting"
+        class="text-3xl font-bold text-white hover:text-purple-400 transition-colors"
+        >AI Consulting</a
+      >
+
+      <div
+        class="flex flex-col items-center space-y-3 py-4 border-y border-white/10 w-full"
+      >
+        <span class="text-xs text-gray-500 uppercase tracking-widest"
+          >Industries</span
+        >
+        <a
+          href="/industries/home-services"
+          class="text-xl font-medium text-gray-300 hover:text-white transition-colors"
+          >Home Services</a
+        >
+        <a
+          href="/industries/legal"
+          class="text-xl font-medium text-gray-300 hover:text-white transition-colors"
+          >Legal</a
+        >
+        <a
+          href="/industries/political"
+          class="text-xl font-medium text-gray-300 hover:text-white transition-colors"
+          >Political</a
+        >
+        <a
+          href="/industries/ecommerce"
+          class="text-xl font-medium text-gray-300 hover:text-white transition-colors"
+          >E-commerce</a
+        >
+      </div>
+
+      <a
+        href="/how-we-work"
+        class="text-3xl font-bold text-white hover:text-purple-400 transition-colors"
+        >How We Work</a
+      >
+      <a
+        href="/results"
+        class="text-3xl font-bold text-white hover:text-purple-400 transition-colors"
+        >Results</a
+      >
+      <a
+        href="/insights"
+        class="text-3xl font-bold text-white hover:text-purple-400 transition-colors"
+        >Insights</a
+      >
+      <a
+        href="/contact"
+        class="mt-8 px-8 py-4 text-lg font-bold text-black bg-white rounded-full hover:bg-gray-200 shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+      >
+        Book Strategy Call
+      </a>
+    </nav>
+  </div>
+</header>
 
 <script>
-  // Mobile Menu Toggle
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
+  const nav = document.getElementById("main-nav");
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileNav = document.getElementById("mobile-nav");
+  let isMenuOpen = false;
 
-  hamburger?.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu?.classList.toggle("active");
+  // Dropdown Handling for Desktop
+  const dropdownTriggers = document.querySelectorAll(".dropdown-trigger");
+
+  dropdownTriggers.forEach((trigger) => {
+    const dropdown = trigger.nextElementSibling;
+    const arrow = trigger.querySelector(".dropdown-arrow");
+    let timeout: ReturnType<typeof setTimeout>;
+
+    trigger.parentElement?.addEventListener("mouseenter", () => {
+      clearTimeout(timeout);
+      if (dropdown && dropdown instanceof HTMLElement) {
+        dropdown.classList.remove("hidden", "opacity-0", "translate-y-2");
+        dropdown.classList.add("flex", "opacity-100", "translate-y-0");
+      }
+      if (arrow && arrow instanceof HTMLElement)
+        arrow.style.transform = "rotate(180deg)";
+    });
+
+    trigger.parentElement?.addEventListener("mouseleave", () => {
+      timeout = setTimeout(() => {
+        if (dropdown && dropdown instanceof HTMLElement) {
+          dropdown.classList.remove("flex", "opacity-100", "translate-y-0");
+          dropdown.classList.add("hidden", "opacity-0", "translate-y-2");
+        }
+        if (arrow && arrow instanceof HTMLElement)
+          arrow.style.transform = "rotate(0deg)";
+      }, 100);
+    });
   });
 
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", (e) => {
-    if (
-      !hamburger?.contains(e.target as Node) &&
-      !navMenu?.contains(e.target as Node)
-    ) {
-      hamburger?.classList.remove("active");
-      navMenu?.classList.remove("active");
+  // Scroll Effect
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 20) {
+      nav?.classList.add(
+        "bg-sky-navy/90",
+        "backdrop-blur-md",
+        "border-sky-card/30",
+        "shadow-2xl",
+      );
+    } else {
+      nav?.classList.remove(
+        "bg-sky-navy/90",
+        "backdrop-blur-md",
+        "border-sky-card/30",
+        "shadow-2xl",
+      );
     }
   });
 
-  // Close mobile menu on link click
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        hamburger?.classList.remove("active");
-        navMenu?.classList.remove("active");
+  // Mobile Menu Toggle
+  mobileBtn?.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+    mobileBtn.classList.toggle("active");
+    mobileNav?.classList.toggle("translate-x-full");
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+  });
+
+  // Scroll Reveal Animation (Global)
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Only animate once
       }
+    });
+  }, observerOptions);
+
+  // Initialize observer on load and observe new elements if needed
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+      observer.observe(el);
     });
   });
 </script>
 
-<style>
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background-color: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-  }
-
-  .navbar.scrolled {
-    background-color: rgba(15, 23, 42, 0.95);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 0;
-  }
-
-  .logo-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
-  }
-
-  .logo-text {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-primary);
-  }
-
-  .logo-text .highlight {
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-    position: relative;
-  }
-
-  .nav-link:hover {
-    color: var(--text-primary);
-  }
-
-  .nav-link::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-1);
-    transition: width 0.3s ease;
-  }
-
-  .nav-link:hover::after {
-    width: 100%;
-  }
-
-  .nav-link.active {
-    color: var(--primary-light);
-  }
-
-  .nav-link.active::after {
-    width: 100%;
-  }
-
-  .nav-link.package-link {
-    color: var(--primary-light);
-    font-weight: 600;
-  }
-
-  .nav-link.package-link:hover {
-    color: var(--accent-color);
-  }
-
-  .nav-link.cta-button {
-    background: var(--gradient-1);
-    padding: 0.6rem 1.5rem;
-    border-radius: 8px;
-    color: white;
+<style is:global>
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
     transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
   }
 
-  .nav-link.cta-button::after {
-    display: none;
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .nav-link.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  /* Staggered delays utilities */
+  .delay-100 {
+    transition-delay: 100ms;
   }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+  .delay-200 {
+    transition-delay: 200ms;
   }
-
-  .hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  @media (max-width: 768px) {
-    .nav-menu {
-      position: fixed;
-      left: -100%;
-      top: 70px;
-      flex-direction: column;
-      background-color: rgba(15, 23, 42, 0.98);
-      width: 100%;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.5);
-      padding: 2rem 0;
-      border-top: 1px solid var(--border-color);
-    }
-
-    .nav-menu.active {
-      left: 0;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(8px, 8px);
-    }
-
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -7px);
-    }
+  .delay-300 {
+    transition-delay: 300ms;
   }
 </style>

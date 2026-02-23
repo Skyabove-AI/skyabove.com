@@ -2,6 +2,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://skyabove.com',
@@ -20,9 +22,12 @@ export default defineConfig({
       // Target modern browsers for better optimization
       target: 'es2020',
     },
+
     esbuild: {
       // Drop console logs and debugger in production
       drop: ['console', 'debugger'],
     },
+
+    plugins: [tailwindcss()],
   },
 });

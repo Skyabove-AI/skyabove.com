@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CTASection from "../components/CTASection.astro";
+import ServiceSection from "../components/ServiceSection.astro";
+
+const services = [
+    {
+        title: "Strategy & Opportunity Mapping",
+        description:
+            "This is high-level but extremely valuable. Companies struggle to move from proof-of-concept to production scale. We solve that.",
+        icon: "🗺️",
+        deliverables: [
+            "AI Readiness Assessment",
+            "Workflow Audits",
+            "ROI Analysis",
+            "Use-Case Prioritization",
+            "Automation Strategy",
+        ],
+    },
+    {
+        title: "AI Implementation & Build",
+        description:
+            'This is the "make it real" phase. We combine humans and AI agents to execute faster with smaller teams.',
+        icon: "⚙️",
+        deliverables: [
+            "AI Agents for Sales/Support",
+            "Automation Pipelines",
+            "Internal Copilots",
+            "Marketing Content Systems",
+            "Predictive Analytics",
+        ],
+    },
+    {
+        title: "AI Operations & Optimization",
+        description:
+            "After launch, the real value is unlocked through continuous optimization and refinement.",
+        icon: "📈",
+        deliverables: [
+            "Model Monitoring",
+            "Prompt Engineering Optimization",
+            "Cost Management",
+            "Workflow Refinement",
+            "Continuous Improvement",
+        ],
+    },
+];
+---
+
+<Layout title="AI Consulting - SkyAbove">
+    <div class="pt-32 pb-12 bg-sky-navy text-center">
+        <div class="container-custom">
+            <div
+                class="inline-flex items-center space-x-2 bg-purple-500/10 text-purple-400 px-4 py-2 rounded-full text-sm font-medium mb-8 border border-purple-500/20"
+            >
+                <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"
+                ></span>
+                <span>AI Strategy Consulting Team</span>
+            </div>
+            <h1
+                class="text-5xl md:text-7xl font-bold mb-6 text-white max-w-4xl mx-auto leading-tight"
+            >
+                Transform Your Business With <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500"
+                    >AI At Scale</span
+                >
+            </h1>
+            <p class="text-xl text-sky-muted max-w-3xl mx-auto leading-relaxed">
+                When predictive artificial intelligence is complemented by
+                generative AI, their combined power offers stronger capabilities
+                and greater, sustained AI value creation.
+            </p>
+        </div>
+    </div>
+
+    <div class="bg-sky-dark py-16">
+        <div class="container-custom">
+            <div
+                class="bg-[#0f111a] border border-white/5 rounded-3xl p-8 md:p-12 mb-20 relative overflow-hidden group"
+            >
+                <!-- Subtle gradient background -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-blue-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700"
+                >
+                </div>
+
+                <div class="relative z-10 max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl font-bold text-white mb-6">
+                        A Proven Strategic Playbook
+                    </h2>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        Building from a proven strategic playbook, our AI
+                        strategy consulting team empowers clients to focus on
+                        key strategic opportunities and execute a comprehensive
+                        AI business transformation. We work to reimagine
+                        processes, foster adoption, and develop the right
+                        capabilities, roles, and governance to successfully—and
+                        responsibly—deploy AI at scale.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                    Main Types of AI Consulting Services
+                </h2>
+                <div
+                    class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"
+                >
+                </div>
+            </div>
+        </div>
+
+        {
+            services.map((service, index) => (
+                <ServiceSection
+                    title={service.title}
+                    description={service.description}
+                    deliverables={service.deliverables}
+                    icon={service.icon}
+                    reversed={index % 2 !== 0}
+                />
+            ))
+        }
+    </div>
+
+    <CTASection />
+</Layout>

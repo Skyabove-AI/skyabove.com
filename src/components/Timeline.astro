@@ -1,0 +1,79 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Audit + Instrument",
+    description: "We fix what's broken in tracking, measurement, and data flow. We establish the ground truth before building.",
+    icon: "📊"
+  },
+  {
+    number: "02",
+    title: "Build Workflows",
+    description: "We create documented AI SOPs and automations across your stack. We map the human-AI loop.",
+    icon: "⚙️"
+  },
+  {
+    number: "03",
+    title: "Ship Capabilities",
+    description: "We deploy custom GPTs, agents, and agentic systems that run on top of your verified data.",
+    icon: "🚀"
+  },
+  {
+    number: "04",
+    title: "Compound",
+    description: "Every month, the system gets smarter. More experiments, better data, tighter feedback loops.",
+    icon: "📈"
+  },
+];
+---
+
+<section class="section-padding bg-sky-dark relative overflow-hidden">
+  <!-- Connecting Line (Desktop) -->
+  <div class="hidden lg:block absolute top-[40%] left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-sky-blue/30 to-transparent z-0"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-20">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">How We Work</h2>
+      <p class="text-sky-muted text-lg max-w-2xl mx-auto">
+        A structured process to move from chaos to a self-improving growth engine.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {steps.map((step, index) => (
+        <div class="relative group">
+          <!-- Step Number -->
+          <div class="text-8xl font-bold text-sky-card absolute -top-10 -left-6 z-0 opacity-50 group-hover:text-sky-card/80 transition-colors select-none">
+            {step.number}
+          </div>
+          
+          <!-- Content Card -->
+          <div class="relative z-10 pt-8 pl-4">
+             <div class="w-16 h-16 bg-sky-navy border border-sky-blue/30 rounded-full flex items-center justify-center text-3xl mb-6 shadow-xl group-hover:border-sky-blue group-hover:bg-sky-blue/10 transition-all duration-300">
+               {step.icon}
+             </div>
+             
+             <h3 class="text-2xl font-bold text-white mb-4 group-hover:text-sky-blue transition-colors">
+               {step.title}
+             </h3>
+             
+             <p class="text-sky-muted leading-relaxed">
+               {step.description}
+             </p>
+          </div>
+          
+          <!-- Mobile Connector -->
+          {index !== steps.length - 1 && (
+            <div class="lg:hidden absolute left-12 top-24 bottom-[-3rem] w-0.5 bg-sky-card"></div>
+          )}
+        </div>
+      ))}
+    </div>
+    
+    <div class="mt-20 text-center">
+        <a href="/how-we-work" class="px-8 py-4 text-base font-bold text-white border border-sky-card rounded-lg hover:bg-sky-card/50 transition-all hover:border-sky-blue/30 inline-block">
+            See the full methodology
+        </a>
+    </div>
+  </div>
+</section>

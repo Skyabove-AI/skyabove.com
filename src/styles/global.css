@@ -1,266 +1,66 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-sky-navy: #0A0F1C;
+  --color-sky-dark: #111827;
+  --color-sky-card: #1E293B;
+  --color-sky-blue: #3B82F6;
+  --color-sky-amber: #F59E0B;
+  --color-sky-text: #FFFFFF;
+  --color-sky-muted: #94A3B8;
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.7s ease-out forwards;
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
-:root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --primary-light: #818cf8;
-    --secondary-color: #ec4899;
-    --accent-color: #14b8a6;
-    --bg-dark: #0f172a;
-    --bg-darker: #020617;
-    --bg-light: #1e293b;
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
-    --border-color: #334155;
-    --gradient-1: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-    --gradient-2: linear-gradient(135deg, #14b8a6 0%, #6366f1 100%);
-    --gradient-3: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
-}
-
-html {
+/* Base Styles */
+@layer base {
+  html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    background-color: var(--color-sky-navy);
+    color: var(--color-sky-text);
+  }
+
+  body {
+    @apply font-sans antialiased selection:bg-sky-blue/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-white;
+  }
+  
+  h1 {
+    letter-spacing: -0.04em;
+  }
 }
 
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--bg-darker);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-    /* Prevent font size adjustments on orientation change */
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+/* Custom Utilities */
+@utility container-custom {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-/* Image optimization for CLS prevention */
-img, video, iframe {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Lazy loading images */
-img[loading="lazy"] {
-    content-visibility: auto;
-}
-
-.container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-/* Section Styles */
-section {
-    padding: 7rem 0;
-    position: relative;
-}
-
-.section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem;
-}
-
-.section-label {
-    display: inline-block;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--primary-light);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-}
-
-.section-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-.section-description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-/* Button Styles */
-.btn {
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    display: inline-block;
-}
-
-.btn-primary {
-    background: #ff6b35;
-    color: white;
-    font-weight: 700;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    background: #ff8542;
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-    border-color: var(--primary-color);
-    background: rgba(99, 102, 241, 0.1);
-}
-
-.btn-full {
-    width: 100%;
-}
-
-/* Animations - Optimized for performance */
-@keyframes float {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-    }
-    33% {
-        transform: translate(30px, -30px) scale(1.1);
-    }
-    66% {
-        transform: translate(-30px, 30px) scale(0.9);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Performance hints for animated elements */
-.gradient-orb,
-.portfolio-card,
-.service-card {
-    will-change: transform;
-    /* Only apply will-change when animating */
-    contain: layout style paint;
-}
-
-@keyframes scrollArrow {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(10px);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutDown {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-}
-
-/* Scroll Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Utility Classes */
-.gradient-text {
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .container {
-        padding: 0 1.5rem;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 5rem 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .section-title {
-        font-size: 1.75rem;
-    }
+@utility section-padding {
+  @apply py-20 lg:py-32;
 }

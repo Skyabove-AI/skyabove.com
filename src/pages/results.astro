@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CTASection from "../components/CTASection.astro";
+import Results from "../components/Results.astro";
+// Reusing the Results component logic but expanding it here manually for control over the full page content
+---
+
+<Layout title="Client Results - SkyAbove">
+    <div
+        class="pt-32 pb-12 bg-sky-navy text-center border-b border-sky-card/30"
+    >
+        <div class="container-custom">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Proven Impact</h1>
+            <p class="text-xl text-sky-muted max-w-2xl mx-auto">
+                Real numbers, real growth. No fluff.
+            </p>
+        </div>
+    </div>
+
+    <!-- Reusing the index Results component for the main showcase because it's already well designed -->
+    <Results />
+
+    <!-- Additional Case Study Grid -->
+    <section class="section-padding bg-sky-dark">
+        <div class="container-custom">
+            <h2 class="text-3xl font-bold mb-12">More Case Studies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Placeholder cards for additional studies -->
+                {
+                    [1, 2, 3].map((i) => (
+                        <div class="group bg-sky-card border border-sky-card rounded-xl overflow-hidden hover:border-sky-blue/30 transition-all">
+                            <div class="h-48 bg-sky-navy relative">
+                                <div class="absolute inset-0 bg-sky-blue/5" />
+                            </div>
+                            <div class="p-6">
+                                <div class="text-xs font-bold text-sky-amber uppercase tracking-wider mb-2">
+                                    B2B Tech
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-2 group-hover:text-sky-blue transition-colors">
+                                    Automated outbound at scale
+                                </h3>
+                                <p class="text-sky-muted text-sm mb-4">
+                                    How we used AI agents to book 3x more demos.
+                                </p>
+                                <a
+                                    href="#"
+                                    class="text-sky-blue font-bold text-sm hover:text-white transition-colors"
+                                >
+                                    Read case study →
+                                </a>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <CTASection />
+</Layout>

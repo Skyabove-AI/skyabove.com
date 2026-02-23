@@ -1,0 +1,40 @@
+---
+import IndustryPage from "../../components/IndustryPage.astro";
+
+const data = {
+    title: "Profitable Scale for DTC & E-commerce Brands",
+    subhead:
+        "We drive profitable customer acquisition with full-funnel paid media, creative testing at scale, email/SMS automation, and lifetime value optimization.",
+    problem:
+        "CAC is rising. ROAS is falling. The 'Facebook arbitrage' era is over. Brands are struggling with creative fatigue—they can't produce enough winning ads to feed the algorithm. Attribution is broken, making it hard to know where to invest.",
+    approach:
+        "We build a creative testing engine. We produce and test dozens of ad variants per week to find winners. We implement server-side tracking (CAPI) to fix signal loss. We focus on LTV, using Klaviyo flows to turn one-time buyers into loyal subscribers.",
+    capabilities: [
+        "Full-Funnel Media Buying",
+        "Creative Strategy & Production",
+        "LTV Optimization (Email/SMS)",
+        "Server-Side Tracking (CAPI)",
+        "Conversion Rate Optimization",
+        "Marketplace Management",
+    ],
+    integrationStack: [
+        "Shopify",
+        "Klaviyo",
+        "Triple Whale",
+        "Meta Ads Manager",
+        "TikTok Ads",
+    ],
+    caseStudy: {
+        title: "Scaling a Supplement Brand to 8 Figures",
+        description:
+            "A health supplement brand was stuck at a revenue plateau. We overhauled their creative strategy and email flows to unlock the next stage of growth.",
+        metrics: [
+            "259%: Increase in Yearly Revenue",
+            "3.8x: Blended ROAS at Scale",
+            "45%: Improvement in Returning Customer Rate",
+        ],
+    },
+};
+---
+
+<IndustryPage {...data} />

@@ -1,0 +1,40 @@
+---
+import IndustryPage from "../../components/IndustryPage.astro";
+
+const data = {
+    title: "Modern Voter Outreach for Political Campaigns",
+    subhead:
+        "We build voter outreach systems with targeted digital ads, fundraising optimization, volunteer coordination tools, and campaign finance compliant workflows.",
+    problem:
+        "Campaigns are short, chaotic, and cash-strapped. You have months, not years, to build name ID and mobilize voters. Traditional consultants rely on outdated TV buys and generic mailers. Digital fundraising is often fragmented and inefficient.",
+    approach:
+        "We treat campaigns like high-growth startups. We use data-backed targeting to reach persuadable voters on CTV, YouTube, and social. We deploy rapid-response content systems to capitalize on news cycles. Our fundraising automations optimize donor LTV and ensure compliance.",
+    capabilities: [
+        "Voter File Targeting",
+        "Digital Fundraising (WinRed/ActBlue)",
+        "Rapid Response Content",
+        "CTV & Programmatic Ads",
+        "Volunteer Automation",
+        "Compliance workflows",
+    ],
+    integrationStack: [
+        "WinRed",
+        "NGP VAN",
+        "L2 Data",
+        "NationBuilder",
+        "Google Civics",
+    ],
+    caseStudy: {
+        title: "Flipping a District with Digital Dominance",
+        description:
+            "How an underdog congressional challenger used AI-optimized fundraising and targeted CTV to outraise and unseat an incumbent.",
+        metrics: [
+            "$1.2M: Raised online with AI-optimized email flows",
+            "35%: Higher video completion rate on CTV ads",
+            "12k: New volunteers recruited via SMS automation",
+        ],
+    },
+};
+---
+
+<IndustryPage {...data} />

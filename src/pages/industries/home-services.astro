@@ -1,0 +1,40 @@
+---
+import IndustryPage from "../../components/IndustryPage.astro";
+
+const data = {
+    title: "The AI Growth Engine for Home Service Companies",
+    subhead:
+        "We build local lead generation engines with AI-optimized Google Ads, LSAs, SEO, and CRM automation that turn clicks into booked jobs.",
+    problem:
+        "Most marketing for HVAC, plumbing, and roofing is wasteful. Agencies generate 'leads' that never answer the phone. You spend thousands on clicks with no visibility into which keywords actually drive revenue. Reviews are inconsistent, and follow-up is manual and slow.",
+    approach:
+        "We connect the dots from click to booked job. We optimize for revenue, not just leads. Our AI agents handle speed-to-lead, instantly qualifying inquiries via text/email. We integrate directly with ServiceTitan, Housecall Pro, and CallRail to feed real revenue data back into ad platforms.",
+    capabilities: [
+        "Google Ads & LSAs",
+        "Local SEO & GMB",
+        "Revenue Attribution",
+        "CRM Automation",
+        "Reputation Management",
+        "Speed-to-Lead Agents",
+    ],
+    integrationStack: [
+        "ServiceTitan",
+        "Housecall Pro",
+        "CallRail",
+        "Google Business",
+        "Zapier",
+    ],
+    caseStudy: {
+        title: "Scaling a Multi-Location HVAC Business",
+        description:
+            "How we helped a regional HVAC provider expand to 3 new territories while lowering cost-per-booked-job by 40%.",
+        metrics: [
+            "40%: Reduction in Cost Per Booked Job",
+            "3.2x: Increase in Revenue from Paid Search",
+            "150+: New Reviews Generated via AI Automation",
+        ],
+    },
+};
+---
+
+<IndustryPage {...data} />
