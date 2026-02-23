@@ -27,7 +27,7 @@ const {
             <div
                 class="w-16 h-16 bg-sky-blue/10 rounded-xl flex items-center justify-center text-3xl text-sky-blue border border-sky-blue/20"
             >
-                {icon}
+                <Fragment set:html={icon} />
             </div>
 
             <h2 class="text-3xl md:text-4xl font-bold">{title}</h2>
