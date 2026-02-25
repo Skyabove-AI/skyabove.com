@@ -5,23 +5,26 @@
 <section
   class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-black pt-24"
 >
-  <!-- Interactive Background Mesh (Adsgency style) -->
+  <!-- Breathing Background Glow -->
   <div class="absolute inset-0 z-0 pointer-events-none select-none">
-    <!-- Center Glow -->
+    <!-- Center Breathing Glow -->
     <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-full blur-[120px] opacity-40 animate-pulse [animation-duration:8s]"
+      class="absolute top-1/2 left-1/2 w-[800px] h-[600px] bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-full blur-[120px]"
+      style="animation: breathing-glow 8s ease-in-out infinite;"
     >
     </div>
 
     <!-- Top Left Accent -->
     <div
-      class="absolute w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -top-20 -left-20 animate-pulse [animation-duration:6s]"
+      class="absolute w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[100px] -top-20 -left-20"
+      style="animation: breathing-glow 6s ease-in-out infinite 2s;"
     >
     </div>
 
     <!-- Bottom Right Accent -->
     <div
-      class="absolute w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] bottom-0 right-0 animate-pulse [animation-duration:10s]"
+      class="absolute w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] bottom-0 right-0"
+      style="animation: breathing-glow 10s ease-in-out infinite 4s;"
     >
     </div>
 
@@ -33,47 +36,46 @@
   </div>
 
   <div class="container-custom relative z-10 text-center px-4 max-w-5xl">
-    <!-- Badge -->
+    <!-- Badge — Stagger 1 -->
     <div
-      class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md opacity-0 animate-fade-in-up"
+      class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md hero-load hero-load-1"
     >
       <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
       <span class="text-sm font-medium text-gray-300"
-        >New: SkyAbove Growth Engine v2.0</span
+        >Now: AI Growth Engine v2.0 - Accepting 3 New Partners</span
       >
     </div>
 
-    <!-- Headline -->
+    <!-- H1 Headline — Stagger 2 -->
     <h1
-      class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white mb-8 reveal-on-scroll leading-none"
+      class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-white mb-8 leading-none hero-load hero-load-2"
     >
-      AI Is Our <br />
+      Growth. Engineered<br />
       <span
         class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400"
       >
-        Operating System.
+        by AI.
       </span>
     </h1>
 
-    <!-- Subheadline -->
+    <!-- Subheadline — Stagger 3 -->
     <p
-      class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed reveal-on-scroll delay-100 font-light"
-      style="animation-delay: 0.3s;"
+      class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light hero-load hero-load-3"
     >
-      We build experimentation and automation engines that increase output and
-      compound growth.
+      Your dedicated human-AI team that builds compounding marketing systems -
+      not campaigns.
     </p>
 
-    <!-- CTAs -->
+    <!-- CTAs — Stagger 4 -->
     <div
-      class="flex flex-col sm:flex-row items-center justify-center gap-6 reveal-on-scroll delay-200 pb-16 border-b border-white/10"
-      style="animation-delay: 0.6s;"
+      class="flex flex-col sm:flex-row items-center justify-center gap-6 pb-16 border-b border-white/10 hero-load hero-load-4"
     >
       <a
         href="/contact"
-        class="group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white px-10 font-medium text-black transition-all duration-300 hover:bg-white/90 hover:scale-105 active:scale-95"
+        class="btn-magnetic group relative inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-white px-10 font-medium text-black transition-all duration-300 hover:bg-white/90 active:scale-95"
+        style="animation: glow-pulse 3s ease-in-out infinite;"
       >
-        <span class="mr-2 text-lg">Book Strategy Call</span>
+        <span class="mr-2 text-lg">Start Your Growth Engine</span>
         <svg
           class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
           fill="none"
@@ -92,28 +94,46 @@
         href="/how-we-work"
         class="group inline-flex h-14 items-center justify-center rounded-full border border-white/20 bg-white/5 px-10 text-lg font-medium text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
       >
-        See How We Work
+        See How It Works
       </a>
     </div>
 
-    <!-- Metrics Strip (Adsgency style - below separator) -->
+    <!-- Metrics Strip — Stagger 5 (with counter animation) -->
     <div
-      class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 items-center justify-center opacity-70"
+      class="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 items-center justify-center hero-load hero-load-5"
     >
       <div class="text-center">
-        <div class="text-2xl font-bold text-white">3.8x</div>
+        <div
+          class="text-2xl font-bold text-white"
+          data-counter="3.8"
+          data-suffix="x"
+        >
+          0
+        </div>
         <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">
           Avg ROAS
         </div>
       </div>
       <div class="text-center">
-        <div class="text-2xl font-bold text-white">30%</div>
+        <div
+          class="text-2xl font-bold text-white"
+          data-counter="30"
+          data-suffix="%"
+        >
+          0
+        </div>
         <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">
           Avg Growth
         </div>
       </div>
       <div class="text-center">
-        <div class="text-2xl font-bold text-white">15+</div>
+        <div
+          class="text-2xl font-bold text-white"
+          data-counter="15"
+          data-suffix="+"
+        >
+          0
+        </div>
         <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">
           AI Agents
         </div>

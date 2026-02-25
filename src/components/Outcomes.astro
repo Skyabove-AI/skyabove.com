@@ -2,26 +2,26 @@
 const tabs = [
     {
         id: "roi",
-        label: "Clear ROI Tied to KPIs",
+        label: "Predictable Revenue",
         content: {
-            title: "If an agency can't tie AI to numbers, it's theater.",
+            title: "If an agency can't tie AI to revenue, it's theater.",
             points: [
-                "Lower CAC / higher ROAS",
-                "Higher conversion rate",
-                "Faster speed-to-market",
-                "More SQLs per rep",
+                "Lower CAC with smarter targeting",
+                "Higher ROAS through automated optimization",
+                "More SQLs per rep without more spend",
+                "Attribution you can actually trust",
             ],
         },
     },
     {
         id: "speed",
-        label: "Speed + Throughput",
+        label: "Speed That Compounds",
         content: {
-            title: "Move fast, learn faster.",
+            title: "Ship faster. Learn faster. Win faster.",
             points: [
-                "More experiments per month",
-                "Faster creative iteration",
-                "Shorter time from insight to asset to launch",
+                "10x more experiments per month",
+                "Creative iterations in hours, not weeks",
+                "Insight to asset to live in one sprint",
             ],
         },
     },
@@ -29,11 +29,11 @@ const tabs = [
         id: "plan",
         label: "A Practical Plan",
         content: {
-            title: "No fluff, just execution.",
+            title: "No fluff. Just a roadmap to compound growth.",
             points: [
                 "15 days: Quick wins + instrumentation",
-                "30 days: Workflows + automations",
-                "60 days: Agentic systems + compounding improvements",
+                "30 days: Workflows + automations deployed",
+                "60 days: Agentic systems + compounding returns",
             ],
         },
     },
@@ -45,7 +45,7 @@ const tabs = [
             points: [
                 "Salesforce, HubSpot, Zendesk",
                 "GA4, Looker, BigQuery, Snowflake",
-                "Google Ads, Meta, TikTok",
+                "Google Ads, Meta, TikTok, LinkedIn",
             ],
         },
     },
@@ -54,9 +54,10 @@ const tabs = [
 
 <section class="section-padding bg-sky-dark relative overflow-hidden">
     <div class="container-custom">
-        <div class="mb-16">
+        <div class="mb-16" data-reveal="up">
             <h2 class="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-                Most companies aren't buying AI.
+                Your Board Doesn't Want AI. <br class="hidden md:block" />They
+                Want Results.
             </h2>
             <div
                 class="text-xl md:text-2xl text-sky-muted max-w-2xl leading-relaxed"
@@ -64,41 +65,41 @@ const tabs = [
                 <p class="mb-6 border-b border-sky-card/50 pb-4 inline-block">
                     They're buying:
                 </p>
-                <ul class="space-y-5 text-white font-medium pl-2">
-                    <li class="flex items-center space-x-4">
+                <ul class="space-y-5 text-white font-medium pl-2" data-stagger>
+                    <li class="flex items-center space-x-4" data-reveal="left">
                         <span
                             class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-blue/10 flex items-center justify-center text-sky-blue text-lg"
                             >✦</span
                         >
-                        <span>Certainty</span>
+                        <span>Predictable Revenue</span>
                     </li>
-                    <li class="flex items-center space-x-4">
+                    <li class="flex items-center space-x-4" data-reveal="left">
                         <span
                             class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-blue/10 flex items-center justify-center text-sky-blue text-lg"
                             >✦</span
                         >
-                        <span>Reduced risk</span>
+                        <span>De-risked Growth</span>
                     </li>
-                    <li class="flex items-center space-x-4">
+                    <li class="flex items-center space-x-4" data-reveal="left">
                         <span
                             class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-blue/10 flex items-center justify-center text-sky-blue text-lg"
                             >✦</span
                         >
-                        <span>Speed</span>
+                        <span>Speed That Compounds</span>
                     </li>
-                    <li class="flex items-center space-x-4">
+                    <li class="flex items-center space-x-4" data-reveal="left">
                         <span
                             class="flex-shrink-0 w-8 h-8 rounded-full bg-sky-blue/10 flex items-center justify-center text-sky-blue text-lg"
                             >✦</span
                         >
-                        <span>Someone who turns chaos into direction</span>
+                        <span>Order From Chaos</span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <!-- Tab Navigation (Desktop) -->
-        <div class="flex flex-col lg:flex-row gap-12">
+        <div class="flex flex-col lg:flex-row gap-12" data-reveal="up">
             <div class="lg:w-1/3 flex flex-col space-y-2">
                 {
                     tabs.map((tab, index) => (
@@ -110,7 +111,6 @@ const tabs = [
                         </button>
                     ))
                 }
-                <!-- See All Features link for mobile or expansion -->
             </div>
 
             <!-- Tab Content Area -->
@@ -121,7 +121,7 @@ const tabs = [
                     tabs.map((tab, index) => (
                         <div
                             id={tab.id}
-                            class={`transition-opacity duration-500 ${index === 0 ? "block" : "hidden"}`}
+                            class={`transition-all duration-500 ${index === 0 ? "block" : "hidden"}`}
                         >
                             <h3 class="text-2xl md:text-3xl font-bold mb-6 text-white">
                                 {tab.content.title}
@@ -139,10 +139,12 @@ const tabs = [
                             <div class="mt-8 pt-8 border-t border-sky-card/50">
                                 <a
                                     href="/how-we-work"
-                                    class="text-sky-blue font-bold hover:text-white transition-colors inline-flex items-center"
+                                    class="text-sky-blue font-bold hover:text-white transition-colors inline-flex items-center group"
                                 >
                                     See the full process{" "}
-                                    <span class="ml-2">→</span>
+                                    <span class="ml-2 transform group-hover:translate-x-1 transition-transform">
+                                        →
+                                    </span>
                                 </a>
                             </div>
                         </div>
@@ -153,10 +155,12 @@ const tabs = [
     </div>
 </section>
 
-<!-- Simple client-side script for tab switching (vanilla JS for lightness) -->
 <script>
     const buttons = document.querySelectorAll("[data-tab]");
-    const contents = document.querySelectorAll(".lg\\:w-2\\/3 > div"); // Select content divs
+    const tabContainer = document.querySelector(".lg\\:w-2\\/3");
+    const contents = tabContainer
+        ? tabContainer.querySelectorAll(":scope > div")
+        : [];
 
     buttons.forEach((btn) => {
         btn.addEventListener("click", () => {
@@ -171,16 +175,19 @@ const tabs = [
 
             // Hide all contents
             contents.forEach((content) => {
-                content.classList.add("hidden");
-                content.classList.remove("block", "animate-fade-in");
+                (content as HTMLElement).classList.add("hidden");
+                (content as HTMLElement).classList.remove(
+                    "block",
+                    "tab-content-enter",
+                );
             });
 
-            // Show selected content
+            // Show selected content with animation
             const tabId = btn.getAttribute("data-tab");
             const activeContent = document.getElementById(tabId!);
             if (activeContent) {
                 activeContent.classList.remove("hidden");
-                activeContent.classList.add("block", "animate-fade-in");
+                activeContent.classList.add("block", "tab-content-enter");
             }
         });
     });

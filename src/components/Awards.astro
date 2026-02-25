@@ -12,17 +12,27 @@ const awards = [
     <div class="container-custom">
         <p
             class="text-center text-sky-muted/50 text-xs uppercase tracking-[0.2em] mb-8"
+            data-reveal="up"
         >
             Recognized Industry Leaders
         </p>
 
         <div
             class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-opacity duration-500"
+            data-stagger
         >
             {
                 awards.map((award) => (
-                    <div class="group flex items-center space-x-2 text-sky-muted font-bold text-sm md:text-base cursor-default select-none">
-                        <span class="text-xl">🏆</span>
+                    <div
+                        class="group flex items-center space-x-2 text-sky-muted font-bold text-sm md:text-base cursor-default select-none"
+                        data-reveal="scale"
+                    >
+                        <span
+                            class="text-xl group-hover:scale-125 transition-transform"
+                            style="transition-timing-function: var(--ease-spring);"
+                        >
+                            🏆
+                        </span>
                         <span class="group-hover:text-white transition-colors">
                             {award}
                         </span>

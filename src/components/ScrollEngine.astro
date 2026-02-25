@@ -1,0 +1,163 @@
+---
+/**
+ * ScrollEngine — Global IntersectionObserver-based animation controller.
+ * Supports: data-reveal, data-stagger, data-parallax, data-counter
+ * Mount once in Layout.astro.
+ */
+---
+
+<script>
+    // ---- Reveal Observer ----
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const el = entry.target as HTMLElement;
+
+                    // If parent has data-stagger, apply incremental delays to children
+                    if (el.hasAttribute("data-stagger")) {
+                        const children = el.querySelectorAll("[data-reveal]");
+                        children.forEach((child, i) => {
+                            const childEl = child as HTMLElement;
+                            childEl.style.transitionDelay = `${i * 120}ms`;
+                            // Use rAF to ensure the browser processes the delay before adding class
+                            requestAnimationFrame(() => {
+                                requestAnimationFrame(() => {
+                                    childEl.classList.add("revealed");
+                                });
+                            });
+                        });
+                    } else {
+                        el.classList.add("revealed");
+                    }
+
+                    revealObserver.unobserve(el);
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: "0px 0px -60px 0px",
+            threshold: 0.1,
+        },
+    );
+
+    // ---- Counter Animation ----
+    function animateCounter(el: HTMLElement) {
+        const target = el.getAttribute("data-counter");
+        if (!target) return;
+
+        const isDecimal = target.includes(".");
+        const hasPrefix = el.getAttribute("data-prefix") || "";
+        const hasSuffix = el.getAttribute("data-suffix") || "";
+        const targetNum = parseFloat(target);
+        const duration = 1500;
+        const startTime = performance.now();
+
+        function update(now: number) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out quart
+            const eased = 1 - Math.pow(1 - progress, 4);
+            const current = targetNum * eased;
+
+            if (isDecimal) {
+                el.textContent = `${hasPrefix}${current.toFixed(1)}${hasSuffix}`;
+            } else {
+                el.textContent = `${hasPrefix}${Math.round(current)}${hasSuffix}`;
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = `${hasPrefix}${target}${hasSuffix}`;
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target as HTMLElement);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.3 },
+    );
+
+    // ---- Parallax ----
+    const parallaxElements: HTMLElement[] = [];
+
+    function updateParallax() {
+        const scrollY = window.scrollY;
+        parallaxElements.forEach((el) => {
+            const speed = parseFloat(el.getAttribute("data-parallax") || "0.1");
+            const rect = el.getBoundingClientRect();
+            const centerY = rect.top + rect.height / 2;
+            const viewportCenter = window.innerHeight / 2;
+            const offset = (centerY - viewportCenter) * speed;
+            el.style.transform = `translateY(${offset}px)`;
+        });
+        requestAnimationFrame(updateParallax);
+    }
+
+    // ---- Initialize ----
+    function initScrollEngine() {
+        // Reveal elements
+        document.querySelectorAll("[data-reveal]").forEach((el) => {
+            // Skip children inside a stagger parent (parent handles them)
+            if (el.parentElement?.hasAttribute("data-stagger")) return;
+            revealObserver.observe(el);
+        });
+
+        // Stagger parents
+        document.querySelectorAll("[data-stagger]").forEach((el) => {
+            revealObserver.observe(el);
+        });
+
+        // Counters
+        document.querySelectorAll("[data-counter]").forEach((el) => {
+            counterObserver.observe(el);
+        });
+
+        // Parallax
+        document.querySelectorAll("[data-parallax]").forEach((el) => {
+            parallaxElements.push(el as HTMLElement);
+        });
+
+        if (parallaxElements.length > 0) {
+            requestAnimationFrame(updateParallax);
+        }
+
+        // Also observe legacy .reveal-on-scroll elements for backward compatibility
+        const legacyObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        legacyObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 },
+        );
+
+        document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+            legacyObserver.observe(el);
+        });
+    }
+
+    // Run on DOM ready and on Astro page transitions
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initScrollEngine);
+    } else {
+        initScrollEngine();
+    }
+
+    // Support Astro View Transitions
+    document.addEventListener("astro:page-load", initScrollEngine);
+</script>

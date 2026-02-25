@@ -1,0 +1,113 @@
+---
+const faqs = [
+    {
+        question:
+            "What makes SkyAbove different from other marketing agencies?",
+        answer: "We're AI-native, not AI-adjacent. While other agencies sprinkle ChatGPT on top of manual processes and call it 'AI marketing,' we've rebuilt the entire agency operating system around AI. Every workflow, every campaign, every optimization runs through purpose-built AI agents supervised by senior humans. The result: faster execution, better data, and compounding returns.",
+    },
+    {
+        question: "How does your AI actually work day-to-day?",
+        answer: "Our AI agents handle creative generation, audience analysis, bid optimization, reporting, and content production. But every decision goes through a human-in-the-loop QA process. Think of it as having a team of 15+ specialists working 24/7, with a senior strategist reviewing everything before it goes live. You get the scale of AI with the judgment of experience.",
+    },
+    {
+        question: "What's included in the $2,000/month package?",
+        answer: "Everything. Website design and maintenance, SEO, paid search (Google Ads), paid social (Meta, TikTok), content creation, email marketing, analytics dashboards, and dedicated AI agent deployment. No hidden fees, no per-channel pricing, no surprise invoices. One price for your entire marketing department.",
+    },
+    {
+        question: "How quickly will I see results?",
+        answer: "Most clients see measurable improvements within the first 30 days. Our 60-day roadmap is designed for compounding: Days 1-15 focus on quick wins and fixing broken tracking; Days 16-30 deploy automated workflows; Days 31-60 activate agentic systems that learn and improve. By month three, your marketing machine is self-optimizing.",
+    },
+    {
+        question: "Do I need to provide content or creative assets?",
+        answer: "No. Our Brand Voice Engine and creative automation systems produce on-brand content at scale. We'll learn your voice, your positioning, and your visual identity - then generate hundreds of variants for testing. You approve the direction; we handle the production.",
+    },
+    {
+        question: "Can you work with my existing tools and platforms?",
+        answer: "Absolutely. We plug into your stack, not the other way around. Salesforce, HubSpot, Zendesk, GA4, Looker, BigQuery, Shopify, WooCommerce - we integrate with all major platforms. No forced migrations, no proprietary lock-in.",
+    },
+    {
+        question: "What industries do you specialize in?",
+        answer: "We've built specialized playbooks for four high-demand verticals: Home Services (HVAC, plumbing, roofing), Legal (personal injury, family law), Political Campaigns (candidate races, PACs), and E-commerce/DTC brands. Each playbook is battle-tested with proven results in that specific market.",
+    },
+    {
+        question: "What does 'AI-native' actually mean?",
+        answer: "It means AI isn't a feature we added - it's how we operate. Our workflows were designed from the ground up around AI capabilities. Traditional agencies add AI tools to human processes; we've built human oversight into AI processes. The difference is 10x throughput, faster iteration, and systems that get smarter every month.",
+    },
+];
+---
+
+<section class="section-padding bg-black relative border-t border-white/10">
+    <div class="container-custom max-w-4xl">
+        <div class="text-center mb-16" data-reveal="up">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">
+                Questions? We've Got Answers.
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                Everything you need to know about working with an AI-native
+                agency.
+            </p>
+        </div>
+
+        <div class="space-y-4" data-stagger>
+            {
+                faqs.map((faq, index) => (
+                    <div
+                        class="faq-item border border-white/10 rounded-2xl overflow-hidden bg-[#0A0A0A] hover:border-white/20 transition-colors"
+                        data-reveal="up"
+                    >
+                        <button
+                            class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left group"
+                            aria-expanded="false"
+                        >
+                            <h3 class="text-lg md:text-xl font-bold text-white pr-4 group-hover:text-purple-400 transition-colors">
+                                {faq.question}
+                            </h3>
+                            <svg
+                                class="faq-chevron w-6 h-6 text-gray-500 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7"
+                                />
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 md:px-8">
+                            <p class="text-gray-400 leading-relaxed pb-6 md:pb-8">
+                                {faq.answer}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll(".faq-trigger").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+            const item = trigger.closest(".faq-item");
+            if (!item) return;
+
+            const isOpen = item.classList.contains("open");
+
+            // Close all other items
+            document.querySelectorAll(".faq-item.open").forEach((openItem) => {
+                if (openItem !== item) {
+                    openItem.classList.remove("open");
+                    const btn = openItem.querySelector(".faq-trigger");
+                    if (btn) btn.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle("open");
+            trigger.setAttribute("aria-expanded", isOpen ? "false" : "true");
+        });
+    });
+</script>

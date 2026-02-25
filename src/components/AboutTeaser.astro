@@ -9,18 +9,18 @@
         class="container-custom grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
     >
         <!-- Content -->
-        <div class="space-y-8">
+        <div class="space-y-8" data-reveal="right">
             <h2 class="text-3xl md:text-5xl font-bold">
-                Built by Operators. Not Salespeople.
+                Built by Operators Who've Managed $90M+ in Spend
             </h2>
             <p class="text-xl text-sky-muted">
-                15+ years in performance marketing. $90M+ in ad spend managed.
-                40% average growth.
+                15+ years in performance marketing. 40% average client growth.
+                We've been in the trenches.
             </p>
             <p class="text-lg text-sky-muted">
-                We wrote the book on AI marketing. Literally. Co-authors of "Be
-                Found on AI" and "Box Outside the Think." We don't just use
-                tools; we build the systems that define what's coming next.
+                Co-authors of "Be Found on AI" and "Box Outside the Think." We
+                don't just use tools - we build the systems that define what's
+                coming next.
             </p>
 
             <div class="pt-4">
@@ -31,15 +31,17 @@
                     Meet the Team
                     <span
                         class="ml-2 transform group-hover:translate-x-1 transition-transform"
+                        style="transition-timing-function: var(--ease-spring);"
                         >→</span
                     >
                 </a>
             </div>
         </div>
 
-        <!-- Visual (Abstract representation of experience/authority) -->
+        <!-- Visual -->
         <div
             class="relative h-[400px] bg-sky-card/20 rounded-2xl border border-sky-card flex items-center justify-center overflow-hidden"
+            data-reveal="left"
         >
             <!-- Abstract gradient/grid -->
             <div
@@ -50,6 +52,7 @@
             <div class="relative z-10 text-center space-y-4">
                 <div
                     class="w-24 h-24 bg-sky-blue/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-sky-blue/50"
+                    style="animation: float 4s ease-in-out infinite;"
                 >
                     <span class="text-4xl">👨‍💻</span>
                 </div>
@@ -57,13 +60,15 @@
                 <p class="text-sky-muted">Strategy + Engineering + Creative</p>
             </div>
 
-            <!-- Animated circles/rings -->
+            <!-- Animated orbiting rings -->
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] border border-sky-blue/20 rounded-full animate-[spin_10s_linear_infinite]"
+                class="absolute top-1/2 left-1/2 w-[300px] h-[300px] border border-sky-blue/20 rounded-full"
+                style="animation: rotate-slow 12s linear infinite;"
             >
             </div>
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-sky-card/40 rounded-full animate-[spin_15s_linear_infinite_reverse]"
+                class="absolute top-1/2 left-1/2 w-[400px] h-[400px] border border-sky-card/40 rounded-full"
+                style="animation: rotate-slow 18s linear infinite reverse;"
             >
             </div>
         </div>

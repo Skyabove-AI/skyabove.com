@@ -12,6 +12,7 @@ const partners = [
 
 <section
     class="py-10 border-y border-sky-card/30 bg-sky-dark overflow-hidden relative"
+    data-reveal="up"
 >
     <div
         class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-sky-dark via-transparent to-sky-dark"
@@ -19,12 +20,12 @@ const partners = [
     </div>
 
     <div
-        class="flex items-center space-x-16 animate-infinite-scroll whitespace-nowrap"
+        class="marquee-track flex items-center space-x-16 animate-infinite-scroll whitespace-nowrap"
     >
         <!-- First Loop -->
         {
             partners.map((partner) => (
-                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4">
+                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4 hover:text-sky-muted/80 transition-colors duration-300">
                     <svg
                         class="w-8 h-8 opacity-50"
                         viewBox="0 0 24 24"
@@ -39,7 +40,7 @@ const partners = [
         <!-- Duplicate for smooth loop -->
         {
             partners.map((partner) => (
-                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4">
+                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4 hover:text-sky-muted/80 transition-colors duration-300">
                     <svg
                         class="w-8 h-8 opacity-50"
                         viewBox="0 0 24 24"
@@ -54,7 +55,7 @@ const partners = [
         <!-- Duplicate again for wide screens -->
         {
             partners.map((partner) => (
-                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4">
+                <div class="text-2xl font-bold text-sky-muted/50 uppercase tracking-widest flex items-center space-x-4 hover:text-sky-muted/80 transition-colors duration-300">
                     <svg
                         class="w-8 h-8 opacity-50"
                         viewBox="0 0 24 24"

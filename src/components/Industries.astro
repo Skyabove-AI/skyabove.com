@@ -3,7 +3,7 @@ const industries = [
     {
         title: "Home Services",
         description:
-            "HVAC, plumbing, roofing, construction. We build local lead generation engines with AI-optimized Google Ads and LSAs.",
+            "HVAC, plumbing, roofing, construction. We build local lead generation engines with AI-optimized Google Ads, LSAs, and geo-fencing that fill your calendar.",
         icon: "🏠",
         link: "/industries/home-services",
         clients: "HVAC, Roofers, Builders",
@@ -11,7 +11,7 @@ const industries = [
     {
         title: "Legal",
         description:
-            "Personal injury, family law, criminal defense. Compliant, high-intent paid search that drives qualified consultations.",
+            "Personal injury, family law, criminal defense. Compliant, high-intent paid search that drives qualified consultations and reduces your cost per case.",
         icon: "⚖️",
         link: "/industries/legal",
         clients: "Law Firms, Attorneys",
@@ -19,7 +19,7 @@ const industries = [
     {
         title: "Political Campaigns",
         description:
-            "Candidate campaigns, PACs. Voter outreach systems with digital ads, fundraising optimization, and rapid-response content.",
+            "Candidate campaigns, PACs. Voter outreach systems with digital ads, fundraising optimization, and rapid-response content that wins races.",
         icon: "🗳️",
         link: "/industries/political",
         clients: "Candidates, PACs",
@@ -27,7 +27,7 @@ const industries = [
     {
         title: "E-commerce / DTC",
         description:
-            "Shopify stores, Amazon sellers. Full-funnel paid media, creative testing at scale, and LTV optimization.",
+            "Shopify stores, Amazon sellers. Full-funnel paid media, creative testing at scale, and LTV optimization that turns browsers into repeat buyers.",
         icon: "📦",
         link: "/industries/ecommerce",
         clients: "DTC Brands, Amazon FBA",
@@ -37,23 +37,31 @@ const industries = [
 
 <section class="section-padding bg-black relative">
     <div class="container-custom">
-        <div class="text-center mb-16 reveal-on-scroll">
+        <div class="text-center mb-16" data-reveal="up">
             <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
-                Four Verticals. One System.
+                Dominate Your Market. We Built the Playbook.
             </h2>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Specialized playbooks for specific markets.
+                Battle-tested growth systems for industries where every lead
+                matters.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            data-stagger
+        >
             {
                 industries.map((ind, index) => (
                     <a
                         href={ind.link}
-                        class={`reveal-on-scroll group block bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 ${index === 1 ? "delay-100" : index === 2 ? "delay-200" : index === 3 ? "delay-300" : ""}`}
+                        class="group block bg-[#0A0A0A] border border-white/10 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 card-tilt"
+                        data-reveal="up"
                     >
-                        <div class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-all">
+                        <div
+                            class="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-all"
+                            style="transition-timing-function: var(--ease-spring);"
+                        >
                             {ind.icon}
                         </div>
 

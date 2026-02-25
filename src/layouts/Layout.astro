@@ -8,6 +8,7 @@ import "@fontsource/jetbrains-mono/400.css";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import SEO from "../components/SEO.astro";
+import ScrollEngine from "../components/ScrollEngine.astro";
 
 interface Props {
   title: string;
@@ -29,6 +30,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <SEO
       title={title}
@@ -45,5 +47,6 @@ const {
       <slot />
     </main>
     <Footer />
+    <ScrollEngine />
   </body>
 </html>
