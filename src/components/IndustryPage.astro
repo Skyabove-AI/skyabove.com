@@ -14,6 +14,7 @@ interface Props {
         metrics: string[];
         description: string;
     };
+    heroImage?: string;
 }
 
 const {
@@ -24,14 +25,21 @@ const {
     capabilities,
     integrationStack,
     caseStudy,
+    heroImage,
 } = Astro.props;
 ---
 
 <Layout title={`${title} | SkyAbove`}>
     <!-- Hero -->
-    <section class="section-padding bg-sky-navy relative pt-32 lg:pt-40">
+    <section
+        class="section-padding bg-sky-navy relative pt-32 lg:pt-40"
+        style={heroImage
+            ? `background: url('${heroImage}') center center / cover no-repeat;`
+            : ""}
+    >
+        <div class="absolute inset-0 bg-sky-navy/80"></div>
         <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-sky-blue)_0%,_transparent_30%)] opacity-10"
+            class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-sky-blue)_0%,_transparent_30%)] opacity-30"
         >
         </div>
 
